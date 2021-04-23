@@ -31,7 +31,7 @@ class PassSorterController extends Controller
         while(true){            
             $step = $counter++ .'. ';
             if($current->type == 'airplane'){
-                $step .= 'From '. $current->from .', take flight '.$current->number.' to '.$current->to.'. Gate '. $current->gate.', seat '. $current->seat .'. ';
+                $step .= 'From '. $current->from .', take '.$current->number.' to '.$current->to.'. Gate '. $current->gate.', seat '. $current->seat .'. ';
 
                 if($current->counter){
                     $step .= 'Baggage drop at ticket counter '. $current->counter .'.';
