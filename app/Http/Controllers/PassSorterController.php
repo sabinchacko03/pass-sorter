@@ -71,6 +71,7 @@ class PassSorterController extends Controller
             ]);
         $content = $req->file('file')->get();
         $input = json_decode($content);
+        shuffle($input);
         $output = $this->sortFunction($input);
         return back()
             ->with('success','Route has been found.')
@@ -79,7 +80,9 @@ class PassSorterController extends Controller
 
     public function jsonForm(Request $req){
         $json = $req->json;
-        $output = $this->sortFunction(json_decode($json));
+        $input = json_decode($json);
+        shuffle($input);
+        $output = $this->sortFunction($input);
         return back()
             ->with('success','Route has been found.')
             ->with('result', $output);
